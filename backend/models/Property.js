@@ -20,7 +20,8 @@ const propertySchema = new mongoose.Schema({
   owner_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: [true, 'Owner is required']
+    required: [false],
+    // required: [false, 'Owner is required']  // changing required to false for temp purpose later we can change it to true
   },
   category_id: {
     type: mongoose.Schema.Types.ObjectId,

@@ -257,15 +257,22 @@ export const createProperty = asyncHandler(async (req, res) => {
   try {
     const propertyData = { ...req.body };
     
+
+    
     // Set owner_id if user is creating property
-    if (req.userType === 'user') {
-      propertyData.owner_id = req.user._id;
-    } else if (!propertyData.owner_id) {
-      return res.status(400).json({
-        success: false,
-        message: 'Owner ID is required'
-      });
-    }
+  if (!propertyData.owner_id) {
+  propertyData.owner_id = null; // or leave undefined
+}
+    // if (req.userType === 'user') {
+    //   propertyData.owner_id = req.user._id;
+    // } else if (!propertyData.owner_id) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: 'Owner ID is required'
+    //   });
+    // }
+
+    // ---------------------------------------------------------
 
     // Handle file uploads
     if (req.files) {

@@ -42,7 +42,7 @@ router.get('/stats', protect, adminOnly, getPropertyStats);
 router.get('/:id', optionalAuth, validateId, getPropertyById);
 
 // Protected routes
-router.post('/', protect, uploadProperty, handleUploadError, validateCreateProperty, createProperty);
+router.post('/', uploadProperty, handleUploadError, validateCreateProperty, createProperty);  // removed 'protect' to allow property creation without authentication for temp purpose
 router.put('/:id', protect, uploadProperty, handleUploadError, validateId, updateProperty);
 router.patch('/:id/status', protect, hasPermission('properties', 'update'), validateId, updatePropertyStatus);
 router.delete('/:id', protect, hasPermission('properties', 'delete'), validateId, deleteProperty);

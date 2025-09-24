@@ -21,6 +21,8 @@ import dashboardRoutes from './backend/routes/dashboardRoutes.js';
 import staffRoutes from './backend/routes/staffRoutes.js';
 import subscriptionRoutes from './backend/routes/subscriptionRoutes.js';
 import paymentRoutes from './backend/routes/paymentRoutes.js';
+// import propertyCategoryRoutes from './routes/propertyCategoryRoutes.js'
+import propertyCategoryRoutes from './backend/routes/propertyCategoryRoutes.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -73,6 +75,8 @@ app.use('/api/admin/dashboard', dashboardRoutes);
 app.use('/api/admin/staff', staffRoutes);
 app.use('/api/admin/subscriptions', subscriptionRoutes);
 app.use('/api/admin/payments', paymentRoutes);
+
+app.use('/api/property-categories', propertyCategoryRoutes)
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
